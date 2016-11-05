@@ -7,6 +7,18 @@
 ul{
     padding-left: -3;
 }
+/*
+I highly recommend that you change all your id's to classes.
+Remember that classes are meant to be used on multiple elements.
+Id's are only to be used on ONE element and never used again.
+This matters when we start using javascript or other programming languages to pull information
+from or modify certain id's. If the id is used on more than one tag the whole site could break.
+
+There's a shortcut in Sublime where if you press cmd + d you can select every instance of "id"
+and change it to "class". There's likely an equivalent in atom. Lookup find and replace so you only
+have to change it once in the html doc and once in the css doc. ("#" to ".").
+It'll be good to know in the future and will save SO much time.
+*/
 
 #wrapper{
     width: 930px;
@@ -54,10 +66,13 @@ ul{
     margin-left: 20px;
 }
 
+//do the same thing here for the .main_content indentation that you did for .navigation
+
 .content a {
     font-weight: bold;
     text-decoration: underline;
 }
+//the .content class will make all the a elements bold, use the .bold class you added instead
 
 #contacts{
     border-radius: 25px;
@@ -67,3 +82,16 @@ ul{
     margin-top: 20px;
     padding: 15px 0px 0px 15px;
 }
+
+/*
+The only other thing I can see is inconsistent padding.
+Try the following syntax:
+.header {
+    padding: 10px 15px;
+}
+
+This will add 10px of padding to both the left AND right sides and 15px to both the top and bottom.
+It's helpful for if you want consistent padding.
+Check out http://www.w3schools.com/cssref/pr_padding.asp if you want a good reference for how the
+syntax you use will behave.
+*/
