@@ -14,6 +14,10 @@
   display: inline-block;
 }
 
+.header_background {
+  background-color: maroon;
+}
+
 #header {
   background-color: maroon;
   color: white;
@@ -23,44 +27,43 @@
   vertical-align: top;
   text-align: center;
 }
+    #header p {
+        padding: 5px;
+    }
 
-.header_background {
-  background-color: maroon;
-}
+    #header a{
+      color: orange;
+    }
 
-#header span.hlink a{
-  color: orange;
-}
-
-#header span.search {
-  padding-left: 40px;
-}
+    #header form {
+      padding-left: 120px;
+    }
 
 #topnav {
   background-color: #DCDCDC;
-  width: 970px;
   padding: 7px 0px;
   border-bottom: 1px solid grey;
 }
+    #topnav ul {
+        margin-left: 20px;
+    }
+        #topnav ul li {
+          display: inline;
+          font-weight: bold;
+        }
+            #topnav ul li:after{
+              content: "|";
+              padding: 5px;
+            }
 
-#topnav li {
-  display: inline;
-  font-weight: bold;
-}
+            #topnav ul li:last-child:after{
+              content: none;
+            }
 
-#topnav ul li:after{
-  content: "|";
-  padding: 5px;
-}
-
-#topnav ul li:last-child:after{
-  content: none;
-}
-
-#topnav a{
-  color: #696969;
-  text-decoration: none;
-}
+    #topnav a{
+      color: #696969;
+      text-decoration: none;
+    }
 
 #sidenav, #content {
   display: inline-block;
@@ -75,30 +78,39 @@
   margin: 20px 15px 10px 20px;
 }
 
-#sidenav a{
-  color: darkred;
-}
+    #sidenav a{
+      color: darkred;
+    }
 
-#sidenav ul li {
-  padding: 5px 0px;
-}
+    #sidenav ul {
+        margin-left: 10px;
+    }
+
+    #sidenav ul li {
+      padding: 5px 0px;
+    }
 
 #content {
   margin: 20px 0px;
   width: 650px;
 }
+    #content a, #content h2, #content h3, #content h4 {
+      color: darkred;
+    }
 
-#content a, h2, h3, h4 {
-  color: darkred;
-}
+    #content h3 {
+      padding: 20px 0px;
+    }
 
-#content h3 {
-  padding: 20px 0px;
-}
-
-#content h4 {
-  padding: 15px 0px;
-}
+    #content h4 {
+      padding: 15px 0px;
+    }
+    #content ul, #content ol {
+        margin-left: 50px;
+    }
+    #content p, #content :nth-child(10){
+        padding-bottom: 20px;
+    }
 
 .bold {
   font-weight: bold;
