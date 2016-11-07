@@ -1,0 +1,169 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+  width: 970px;
+  height: 680px;
+  margin: 0px auto;
+  background-color: black;
+}
+
+#logo, #phone {
+  vertical-align: top;
+  display: inline-block;
+}
+
+#phone {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 30px 20px 0px 260px;
+  margin-bottom: : 10px;
+}
+
+.header_background {
+  background-color: whitesmoke;
+}
+
+#topnav li {
+display: inline;
+}
+
+#topnav ul li:after {
+  content: "|";
+  padding: 5px;
+}
+
+#topnav ul li:last-child:after{
+  content: none;
+}
+
+#topnav {
+  text-align: center;
+  width: 970px;
+  height: 30px;
+  border-top: 1px solid grey;
+  background-color: whitesmoke;
+  padding-top: 10px;
+}
+
+#topnav a{
+  color: dimgrey;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+#mainbody {
+  margin-top: 15px;
+}
+
+#mainpic {
+  border: 5px solid white;
+  margin: 0px 10px 0px 25px;
+}
+
+#logo2 {
+  display: inline-block;
+  width: 55px;
+  height: 15px;
+  margin-left: 15px;
+  border-radius: 0px 45px 45px 0px;
+}
+
+#content {
+  height: 266px;
+  background-color: #696969;
+  width: 515px;
+  vertical-align: top;
+  display: inline-block;
+  color: white;
+}
+
+#midsec {
+  display: inline-block;
+  margin: 5px 0px 5px 25px;
+}
+
+.midsec {
+  color: DarkKhaki;
+  font-size: 9pt;
+  display: inline-block;
+  margin-left: 10px;
+  width: 785px
+}
+
+.toppers {
+  color: black;
+  font-weight: bold;
+  background-color: gold;
+  /*margin-top: 10px;*/
+  padding: 5px 0px 5px 5px;
+}
+
+.readers a{
+  color: black;
+  border: 1px solid black;
+  background-color: gold;
+  font-size: 6pt;
+  font-weight: bold;
+  border-radius: 20px 55px 55px 20px;
+  padding: 5px;
+}
+
+.intro {
+  font-weight: bold;
+  padding-top: 5px;
+}
+
+.emph{
+  font-weight: bold;
+}
+
+#text {
+  padding: 15px;
+}
+
+#text p{
+  margin-bottom: 15px;
+}
+
+#botsec1 {
+  display: inline-block;
+  margin-left: 25px;
+  width: 222px;
+  margin-right: 5px;
+  background-color: white;
+  font-size: 9pt;
+  padding-bottom: 30px;
+}
+
+#botsec2 {
+  display: inline-block;
+  width: 221px;
+  vertical-align: top;
+  margin-right: 5px;
+  background-color: white;
+  font-size: 9pt;
+  padding-bottom: 30px;
+}
+
+#botsec3 {
+  display: inline-block;
+  width: 222px;
+  vertical-align: top;
+  margin-right: 5px;
+  background-color: white;
+  font-size: 9pt;
+  padding-bottom: 30px;
+}
+
+#botsec4 {
+  display: inline-block;
+  width: 222px;
+  vertical-align: top;
+  margin-right: 5px;
+  background-color: white;
+  font-size: 9pt;
+  padding-bottom: 30px;
+}
