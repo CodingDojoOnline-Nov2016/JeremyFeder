@@ -1,0 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+  margin: 0px auto;
+  width: 970px;
+}
+
+#imgalts {
+  width: 180px;
+  margin: 0px auto;
+}
+/*
+button {
+  background-color: gold;
+  font-size: 14pt;
+  border-radius: 10px;
+  padding: 5px;
+}*/
