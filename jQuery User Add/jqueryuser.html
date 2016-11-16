@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Adding a user with jQuery</title>
+    <meta name="Adding A User With jQuery" content="Simple table-based form to add users through jQuery." >
+    <link rel="stylesheet" type="text/css" href="css/jqueryuser.css">
+    <script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jqueryuser.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <table id="users">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Address</th>
+            <th>Contact #</th>
+          </tr>
+        </thead>
+      </table>
+
+      <div id="formtop">
+        <h1>Add User</h1>
+      </div> <!-- end of formtop div -->
+
+      <form>
+        <label>
+          First Name:
+          <input class"text_input" id= "first_name" type="text" placeholder="First Name" />
+        </label>
+        <label>
+          Last Name:
+          <input class"text_input" id= "last_name" type="text" placeholder="Last Name" />
+        </label>
+        <label>
+          Email Address:
+          <input class"text_input" id= "email" type="text" placeholder="Email Address" />
+        </label>
+        <label>
+          Contact #:
+          <input class"text_input" id= "contact" type="text" placeholder="Phone Number" />
+        </label>
+        <input type="submit" value="Add User" />
+
+      </form>
+
+    </div> <!-- end container -->
+
+  </body>
+</html>
