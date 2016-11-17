@@ -1,0 +1,36 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+#container {
+  width: 970px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+form {
+  width: 400px;
+  margin: 10px 0 0 50px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.submitbutton {
+  background-color: gainsboro;
+  width: 30%;
+}
+
+.cards {
+  width: 45%;
+  margin: 10px;
+  height: auto;
+  border: 1px solid blue;
+  border-radius: 10px;
+  display: inline-block;
+}
