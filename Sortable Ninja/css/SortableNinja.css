@@ -1,0 +1,17 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+#container {
+  margin: 0px auto;
+  width: 970px;
+}
+
+ul {
+  list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px;
+ }
+
+  li {
+    margin: 5px; padding: 5px; width: 150px;
+  }
