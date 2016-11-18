@@ -1,0 +1,93 @@
+Jeremys-MBP:jeremyfeder jeremyfeder$ pwd
+/Users/jeremyfeder/Desktop/jeremyfeder
+Jeremys-MBP:jeremyfeder jeremyfeder$ cd ..
+Jeremys-MBP:Desktop jeremyfeder$ pwd
+/Users/jeremyfeder/Desktop
+Jeremys-MBP:Desktop jeremyfeder$ mkdir test
+Jeremys-MBP:Desktop jeremyfeder$ cd test
+Jeremys-MBP:test jeremyfeder$ pwd
+/Users/jeremyfeder/Desktop/test
+Jeremys-MBP:test jeremyfeder$ mkdir index.html
+Jeremys-MBP:test jeremyfeder$ ls
+index.html
+Jeremys-MBP:test jeremyfeder$ mkdir styles.css
+Jeremys-MBP:test jeremyfeder$ mkdir commands.txt
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	styles.css
+Jeremys-MBP:test jeremyfeder$ rm -rf test
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	styles.css
+Jeremys-MBP:test jeremyfeder$ cd ..
+Jeremys-MBP:Desktop jeremyfeder$ ls
+JeremyFeder	test
+Jeremys-MBP:Desktop jeremyfeder$ cd ..
+Jeremys-MBP:~ jeremyfeder$ ls
+Applications	Documents	Library		Music		Public
+Desktop		Downloads	Movies		Pictures
+Jeremys-MBP:~ jeremyfeder$ cd desktop
+Jeremys-MBP:desktop jeremyfeder$ ls
+JeremyFeder	test
+Jeremys-MBP:desktop jeremyfeder$ rm -rf test
+Jeremys-MBP:desktop jeremyfeder$ ls
+JeremyFeder
+Jeremys-MBP:desktop jeremyfeder$ mkdir test
+Jeremys-MBP:desktop jeremyfeder$ cd test
+Jeremys-MBP:test jeremyfeder$ ls
+Jeremys-MBP:test jeremyfeder$ pwd
+/Users/jeremyfeder/desktop/test
+Jeremys-MBP:test jeremyfeder$ touch index.html
+Jeremys-MBP:test jeremyfeder$ touch styles.html
+Jeremys-MBP:test jeremyfeder$ touch commands.txt
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	styles.html
+Jeremys-MBP:test jeremyfeder$ cp index.html index2.html
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	index2.html	styles.html
+Jeremys-MBP:test jeremyfeder$ cd ..
+Jeremys-MBP:desktop jeremyfeder$ ls
+JeremyFeder	test
+Jeremys-MBP:desktop jeremyfeder$ pwd
+/Users/jeremyfeder/desktop
+Jeremys-MBP:desktop jeremyfeder$ mkdir destination
+Jeremys-MBP:desktop jeremyfeder$ cd test
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	index2.html	styles.html
+Jeremys-MBP:test jeremyfeder$ cd ..
+Jeremys-MBP:desktop jeremyfeder$ ls
+JeremyFeder	destination	test
+Jeremys-MBP:desktop jeremyfeder$ cd test
+Jeremys-MBP:test jeremyfeder$ mv index2.html ../destination/index2.html
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	styles.html
+Jeremys-MBP:test jeremyfeder$ cd ..
+Jeremys-MBP:desktop jeremyfeder$ ls
+JeremyFeder	destination	test
+Jeremys-MBP:desktop jeremyfeder$ cd destination
+Jeremys-MBP:destination jeremyfeder$ pwd
+/Users/jeremyfeder/desktop/destination
+Jeremys-MBP:destination jeremyfeder$ ls
+index2.html
+Jeremys-MBP:destination jeremyfeder$ cd test
+-bash: cd: test: No such file or directory
+Jeremys-MBP:destination jeremyfeder$ cd ..
+Jeremys-MBP:desktop jeremyfeder$ cd test
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	styles.html
+Jeremys-MBP:test jeremyfeder$ rm -rf styles.css
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	styles.html
+Jeremys-MBP:test jeremyfeder$ mv styles.html styles.css
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html	styles.css
+Jeremys-MBP:test jeremyfeder$ rm -rf styles.css
+Jeremys-MBP:test jeremyfeder$ ls
+commands.txt	index.html
+Jeremys-MBP:test jeremyfeder$ cd ..
+Jeremys-MBP:desktop jeremyfeder$ pwd
+/Users/jeremyfeder/desktop
+Jeremys-MBP:desktop jeremyfeder$ ls
+JeremyFeder	destination	test
+Jeremys-MBP:desktop jeremyfeder$ rm -rf destination
+Jeremys-MBP:desktop jeremyfeder$ ls
+JeremyFeder	test
+Jeremys-MBP:desktop jeremyfeder$ 
