@@ -1,0 +1,277 @@
+@~:$ cd desktop
+@~/desktop:$ cd jeremyfeder
+@~/desktop/jeremyfeder: (master)$ git clone https://github.com/JeremyFeder/git_demo.git
+Cloning into 'git_demo'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
+Unpacking objects: 100% (3/3), done.
+@~/desktop/jeremyfeder: (master)$ ls
+Algorithms         FreeBSD            Plot Your Blocks   gitcommands.txt
+ColorClicker       Indentation.html   Sortable Ninja     hello_world.html
+Contact Cards      Indentation2.html  Wordstream         jQuery Functions
+DebuggingjQuery    Loups              aboutMe.md         jQuery User Add
+Disappearing Ninja Ninja To Cat       commands.txt
+FakeBlog.html      PPCLubricants      git_demo
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	git_demo/
+
+nothing added to commit but untracked files present (use "git add" to track)
+@~/desktop/jeremyfeder: (master)$ git a .
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   git_demo
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+@~/desktop/jeremyfeder: (master)$ git add demo_index.html
+fatal: pathspec 'demo_index.html' did not match any files
+@~/desktop/jeremyfeder: (master)$ git add .
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   git_demo
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   git_demo
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   git_demo
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+@~/desktop/jeremyfeder: (master)$ git commit -m "added info to demo index"
+[master 9998684] added info to demo index
+ 1 file changed, 1 insertion(+)
+ create mode 160000 git_demo
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ git push
+Counting objects: 2, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 275 bytes | 0 bytes/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local objects.
+To https://github.com/CodingDojoOnline-Nov2016/JeremyFeder.git
+   8f2e462..9998684  master -> master
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ git pull
+Already up-to-date.
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ git add demo_index.html
+fatal: pathspec 'demo_index.html' did not match any files
+@~/desktop/jeremyfeder: (master)$ git add git_demo
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ get a .
+-bash: get: command not found
+@~/desktop/jeremyfeder: (master)$ git a .
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ git checkout git_demo
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ git checkout --git_demo
+error: unknown option `git_demo'
+usage: git checkout [<options>] <branch>
+   or: git checkout [<options>] [<branch>] -- <file>...
+
+    -q, --quiet           suppress progress reporting
+    -b <branch>           create and checkout a new branch
+    -B <branch>           create/reset and checkout a branch
+    -l                    create reflog for new branch
+    --detach              detach HEAD at named commit
+    -t, --track           set upstream info for new branch
+    --orphan <new-branch>
+                          new unparented branch
+    -2, --ours            checkout our version for unmerged files
+    -3, --theirs          checkout their version for unmerged files
+    -f, --force           force checkout (throw away local modifications)
+    -m, --merge           perform a 3-way merge with the new branch
+    --overwrite-ignore    update ignored files (default)
+    --conflict <style>    conflict style (merge or diff3)
+    -p, --patch           select hunks interactively
+    --ignore-skip-worktree-bits
+                          do not limit pathspecs to sparse entries only
+    --ignore-other-worktrees
+                          do not check if another worktree is holding the given ref
+    --progress            force progress reporting
+
+@~/desktop/jeremyfeder: (master)$ git staus
+git: 'staus' is not a git command. See 'git --help'.
+
+Did you mean this?
+	status
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ git pull
+Already up-to-date.
+@~/desktop/jeremyfeder: (master)$ git push
+Everything up-to-date
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+  (commit or discard the untracked or modified content in submodules)
+
+	modified:   git_demo (modified content)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ git add git_demo/demo_index.html
+fatal: Pathspec 'git_demo/demo_index.html' is in submodule 'git_demo'
+@~/desktop/jeremyfeder: (master)$ cd git_demo
+@~/desktop/jeremyfeder/git_demo: (master)$ git a .
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   demo_index.html
+
+@~/desktop/jeremyfeder/git_demo: (master)$ git commit -m "added info"
+[master d474bc0] added info
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+@~/desktop/jeremyfeder/git_demo: (master)$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 453 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local objects.
+To https://github.com/JeremyFeder/git_demo.git
+   199a72c..d474bc0  master -> master
+@~/desktop/jeremyfeder/git_demo: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean
+@~/desktop/jeremyfeder/git_demo: (master)$ cd ..
+@~/desktop/jeremyfeder: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   git_demo (new commits)
+
+no changes added to commit (use "git add" and/or "git commit -a")
+@~/desktop/jeremyfeder: (master)$ cd git_demo
+@~/desktop/jeremyfeder/git_demo: (master)$ git pull
+Already up-to-date.
+@~/desktop/jeremyfeder/git_demo: (master)$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working tree clean
+@~/desktop/jeremyfeder/git_demo: (master)$
