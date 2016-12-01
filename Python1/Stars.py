@@ -11,7 +11,7 @@ def draw_stars(list):
     for stars in list:
         if type(stars) == int:
             print stars * "*"
-        else:
+        elif type(stars) == str:
             first_init = stars[0].lower()
             print first_init * len(stars)
 draw_stars(x2)
