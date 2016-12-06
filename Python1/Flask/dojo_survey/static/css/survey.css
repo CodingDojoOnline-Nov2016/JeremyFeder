@@ -1,0 +1,30 @@
+* {
+  border: 0px;
+  padding: 0px;
+}
+
+#survey {
+  border: 1px solid black;
+  width: 370px;
+  padding: 25px;
+  background-color: ghostwhite;
+}
+
+textarea {
+  vertical-align: top;
+}
+
+input, select {
+  margin: 10px 0px;
+}
+
+h4 {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 2px;
+  border-radius: 5px;
+}
