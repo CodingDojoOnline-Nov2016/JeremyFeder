@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Great Number Game!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/numbers.css') }}">
+  </head>
+  <body>
+    <div class="game">
+      <h2>Welcome to the great number game!</h2>
+      <p>I am thinking of a number between 1 and 100</p>
+      <p>Take a guess!</p>
+      <form action="/" method="post">
+        <input type="number" name="guess" placeholder="guess!">
+        <p></p>
+        <input type="submit" value="Submit">
+      </form>
+      <p></p>
+      <div class = '{{data["coloration"]}}'>
+        <p>You guessed: {{data['guess']}}</p>
+        <p>And your guess is: {{data['event']}}</p>
+      </div>
+      <!-- {{session['number']}} -->
+      {% if data['correct']%}
+      <a href="/reset"> RESET </a>
+      {% endif %}
+    </div>
+
+
+  </body>
+</html>
