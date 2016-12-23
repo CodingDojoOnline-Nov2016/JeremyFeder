@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash
 from mysqlconnection import MySQLConnector
 import re
+from datetime import datetime
 from flask_bcrypt import Bcrypt
 
 name_regex = re.compile(r"^[a-zA-Z\-]+$")
@@ -18,6 +19,7 @@ def index():
 
 @app.route('/students', methods=['POST'])
 def create():
+
     errors = []
 
     if len(request.form['first_name']) < 2:
@@ -30,7 +32,19 @@ def create():
     elif not name_regex.match(request.form['last_name']):
         errors.append('Your last name may not contain any special characters or numbers!')
 
+    try:
+        birth_date = datetime.strptime(request.form['birth_date'], '%Y-%m-%d')
+        now = datetime.now()
+        if birth_date > now:
+            errors.append('Um.. no. Causality.')
+    except:
+        errors.append('Please Select a Birth Date.')
 
+    if len(request.form['password']) < 8:
+        errors.append('Your password must be 8 or more characters long.')
+
+    if request.form['confirm_password'] != request.form['password']:
+        errors.append('Your Confirm Password and Password must match.')
 
     if errors:
         for error in errors:
@@ -50,7 +64,7 @@ def create():
             'birth_date':request.form['birth_date'],
             'password':pw_hash,
         }
-        
+
         mysql.query_db(query, data)
         return redirect('/')
 
