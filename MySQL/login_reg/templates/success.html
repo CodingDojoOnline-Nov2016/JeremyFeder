@@ -6,9 +6,18 @@
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-  <h2>You have successfully registered and/or logged in!</h2>
+  <!-- <h2>You have successfully registered and/or logged in!</h2>
   <form action = '/'>
     <button>Return</button>
-  </form>
+  </form> -->
+  <h1>Hello {{ user[0]['first_name'] }} {{ user[0]['last_name'] }}. You are successfully Logged In!</h1>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<h4 class="green">{{ message }}</h4>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<a class="button" href="/">Back</a>
 </body>
 </html>
