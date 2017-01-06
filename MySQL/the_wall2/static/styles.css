@@ -1,0 +1,72 @@
+/*layout.html*/
+.error {
+  color: red;
+}
+
+.header {
+  border-bottom: 1px solid black;
+  padding: .5%;
+}
+
+  .header h1 {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    color: #6b4080;
+  }
+
+  .header #login-module {
+    vertical-align: top;
+    width: 40%;
+  }
+
+    .header #login-module form {
+      margin: 0;
+    }
+
+      .header #login-module form input {
+        margin-bottom: 0;
+        color: #9d83b5;
+      }
+
+  .header #register-button {
+    vertical-align: top;
+    margin-top: 1rem;
+    color: blue;
+  }
+
+#new-message {
+  display: inline-block;
+  width: 100%;
+  margin: 0 auto;
+  margin-left: 2%;
+}
+
+  #new-message form textarea{
+    margin: 0 auto;
+    width: 80%;
+  }
+
+/*index.html*/
+.message-box {
+  width: 80%;
+  margin-top: 1%;
+  border: 1px solid black;
+  margin-left: 10%;
+  padding-left: 1%;
+}
+
+  .message-box textarea {
+    width: 80%;
+  }
+
+  .message-box h5, h6, .delete-form {
+    display: inline-block;
+  }
+
+/*register.html*/
+#registration-module {
+  display: inline-block;
+  width: 24%;
+  margin-left: 1%;
+}
