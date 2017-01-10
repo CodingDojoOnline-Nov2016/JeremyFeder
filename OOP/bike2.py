@@ -16,7 +16,7 @@ class Bike(object):
         self.miles += 10
     def reverse(self):
         print "Reversing"
-        miles = self.miles
+        # miles = self.miles
         if self.miles >= 5:
             self.miles -= 5
 
