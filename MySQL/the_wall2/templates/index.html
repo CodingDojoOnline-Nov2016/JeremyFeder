@@ -1,43 +1,85 @@
-{% extends "layout.html" %}
-{% block body %}
-  {% if messages %}
-    {% for message in messages %}
-      <div class="message-box">
-        <h5>{{ message['first_name'] }} {{ message['last_name'] }} {{ message['created_at'] }}</h5>
-        {% if session['user_id'] == message['user_id'] %}
-          <div class="delete-form">
-            <form name="delete-message" action="/messages/{{ message['id'] }}/delete" method="post">
-              <input type="submit" name="submit-delete-message" value="Delete Post">
-            </form>
-          </div>
-        {% endif %}
-        <p class="message">{{ message['message'] }}</p>
-        <p>Comments:</p>
-        <div class="comment-box">
-          {% if comments %}
-            {% for comment in comments %}
-              {% if comment['message_id'] == message['id'] %}
-                <div class="comment">
-                  <h6>{{ comment['first_name'] }} {{ comment['last_name'] }} {{ comment['created_at'] }}</h6>
-                  {% if session['user_id'] == comment['user_id'] %}
-                    <div class="delete-form">
-                      <form name="delete-comment" action="/comments/{{ comment['id'] }}/delete" method="post">
-                        <input type="submit" name="submit-delete-comment" value="Delete Comment">
-                      </form>
-                    </div>
-                  {% endif %}
-                  <p>{{ comment['comment'] }}</p>
-                </div>
-              {% endif %}
-            {% endfor %}
-          {% endif %}
-          <form name="new-comment" action="/comments" method="post">
-            <input type="hidden" name="message-id" value="{{ message['id'] }}">
-            <textarea name="comment" placeholder="Leave a comment..." maxlength="2000"></textarea>
-            <input type="submit" name="submit-new-comment" value="Leave Comment">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Wall</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <div class='header'>
+      <h1>The Wall</h1>
+      {% if not session['user_id'] %}
+        <div id='login-module'>
+          <form name='login' action='/login' method='POST'>
+            <input type="text" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="submit" name="submit-login" value="Log In">
           </form>
         </div>
-      </div>
-    {% endfor %}
-  {% endif %}
-{% endblock %}
+        <a class="button" id='register-button' href="/register">Sign Up</a>
+      {% else %}
+        <div id='login-module'>
+          <p id='welcome'>Welcome {{ user[0]['first_name'] }} {{ user[0]['last_name'] }}</p>
+          <a class="button" id='logout-button' href='/logout'>Log Out</a>
+        </div>
+      {% endif %}
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="error">{{ message }}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+    <div id='new-message'>
+      <h4>Create a new message</h4>
+      <form name="new-message" action="/messages" method="POST">
+        <textarea name='message' placeholder="New Message" maxlength="5000"></textarea>
+        <input type="submit" name="submit-message" value="Post Message">
+      </form>
+    </div>
+    <!-- MESSAGES -->
+    {% if messages %}
+      {% for message in messages %}
+        <div class="message-box">
+          <h5>{{ message['first_name'] }} {{ message['last_name'] }} {{ message['created_at'] }}</h5>
+          {% if session['user_id'] == message['user_id'] %}
+            <div class="delete-form">
+              <form name="delete-message" action="/messages/{{ message['id'] }}/delete" method="POST">
+                <input type="submit" name="submit-delete-message" value="Delete Post">
+              </form>
+            </div>
+          {% endif %}
+          <p class="message">{{ message['message'] }}</p>
+          <p>Comments:</p>
+          <div class="comment-box">
+            {% if comments %}
+              {% for comment in comments %}
+                {% if comment['message_id'] == message['id'] %}
+                  <div class="comment">
+                    <h6>{{ comment['first_name'] }} {{ comment['last_name'] }} {{ comment['created_at'] }}</h6>
+                    {% if session['user_id'] == comment['user_id'] %}
+                      <div class="delete-form">
+                        <form name="delete-comment" action="/comments/{{ comment['id'] }}/delete" method="POST">
+                          <input type="submit" name="submit-delete-comment" value="Delete Comment">
+                        </form>
+                      </div>
+                    {% endif %}
+                    <p>{{ comment['comment'] }}</p>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+            <form name="new-comment" action="/comments" method="POST">
+              <input type="hidden" name="message-id" value="{{ message['id'] }}">
+              <textarea name="comment" placeholder="Leave a comment..." maxlength="2000"></textarea>
+              <input type="submit" name="submit-new-comment" value="Leave Comment">
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </body>
+</html>

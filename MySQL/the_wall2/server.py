@@ -10,9 +10,9 @@ app.secret_key = "supermegatopsecret"
 mysql = MySQLConnector(app, 'the_walldb')
 
 name_regex = re.compile(r"^[a-zA-Z\-]+$")
-EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]+$')
 
-@app.route('/') #render "The Wall" home page
+@app.route('/')
 def index():
     #query messages
     message_query = """SELECT messages.id,
@@ -40,21 +40,21 @@ def index():
 
     #check if user is logged on and pull info
     if 'user_id' not in session or not session['user_id']:
-        return render_template('index.html', title="The Wall", messages=messages, comments=comments)
+        return render_template('index.html', messages=messages, comments=comments)
     else:
         user_query = "SELECT first_name, last_name FROM users WHERE id = :id"
         user_data = { 'id': session['user_id'] }
         user = mysql.query_db(user_query, user_data)
         title = str(user[0]['first_name'])+" "+str(user[0]['last_name'])
-        return render_template('index.html', title=title, user=user, messages=messages, comments=comments)
+        return render_template('index.html', user=user, messages=messages, comments=comments)
 
 @app.route('/register') #Render Registration page
 def register():
-    return render_template('register.html', title="Sign Up")
+    return render_template('register.html')
 
 @app.route('/users', methods=['POST']) #Create a new user
 def create_user():
-    print request.form
+    # print request.form
     first = request.form['first-name']
     last = request.form['last-name']
     email = request.form['email']
@@ -63,13 +63,6 @@ def create_user():
 
     #Create empty error list for error handling
     errors = []
-
-    #Check for duplicate users
-    duplicate_query = "SELECT email FROM users WHERE email = :email"
-    duplicate_data = { 'email': email }
-    duplicate_check = mysql.query_db(duplicate_query, duplicate_data)
-    if duplicate_check:
-        errors.append("A user already exists with that email.  Please Sign Up with a new account or Log In!")
 
     #run form validations
     if len(first) < 1:
@@ -97,32 +90,17 @@ def create_user():
             flash(error)
             return redirect('/register')
 
-    # if len(first) < 1:
-    #     errors.append("Please enter a first name")
-    # elif not first.isalpha():
-    #     errors.append("First name must contain only letters")
-    #
-    # if len(last) < 1:
-    #     errors.append("Please enter a last name")
-    # elif not last.isalpha():
-    #     errors.append("Last name must contain only letters")
-    #
-    # if not EMAIL_REGEX.match(email):
-    #     errors.append("Please enter a valid email address")
-    #
-    # if len(password) < 8:
-    #     errors.append("Your password must be at least 8 characters")
-    # elif password != confirm:
-    #     errors.append("Passwords don't match")
-    #
-    # if errors:
-    #     for error in errors:
-    #         flash(error)
-    #         return redirect('/register')
-
     else:
-        #Create PW Hash!
-        pw_hash = bcrypt.generate_password_hash(password)
+        #First check for duplicate email adresses
+        duplicate_query = "SELECT email FROM users WHERE email = :email"
+        duplicate_data = { 'email': email }
+        duplicate_check = mysql.query_db(duplicate_query, duplicate_data)
+        if duplicate_check:
+            errors.append("A user already exists with that email.  Please Sign Up with a new account or Log In!")
+
+        else:
+        # Finally Create a PW Hash!
+            pw_hash = bcrypt.generate_password_hash(password)
 
         #Run insert query
         insert_query = """INSERT INTO users(first_name, last_name, email, pw_hash, created_at, updated_at) VALUES (:first_name, :last_name, :email, :pw_hash, NOW(), NOW())"""
@@ -145,7 +123,7 @@ def create_user():
 
 @app.route('/login', methods=['POST']) #log user in
 def login():
-    print request.form
+    # print request.form
     email = request.form['email']
     password = request.form['password']
 
@@ -216,7 +194,7 @@ def create_comment():
         for error in errors:
             flash(error)
         print errors
-        print "*" * 50
+        print "*" * 75
         return redirect('/')
     else:
         #run insert query
