@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Email Validation Django-Style (MVC!!)</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'email_valid/css/style.css' %}">
+  </head>
+  <body>
+    <h1>Enter a Valid (or Any) Email!</h1>
+    {% for error in request.session.errors %}
+      <p>{{error}}</p>
+    {% endfor %}
+    <form action='/email_valid' method='POST'>
+      {% csrf_token %}
+      Email:<input type="text" name="email">
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

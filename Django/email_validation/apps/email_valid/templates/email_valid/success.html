@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Success!!</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'email_valid/css/style.css' %}">
+  </head>
+  <body>
+    <div class="top">
+      <h2>({{your_email}}) is a VALID email adress!</h2>
+      <h4>Email Addresses Entered:</h4>
+      <table>
+        {% for email in emails %}
+        <tr>
+          <td>{{email.email}}</td>
+          <td>{{email.created_at}}</td>
+          <td><a href="/email_valid/{{email.id}}/delete">Delete Email</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      <a href="/" method='POST'>Back</a>
+    </div>
+  </body>
+</html>
