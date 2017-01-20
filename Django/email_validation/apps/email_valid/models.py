@@ -16,7 +16,7 @@ class EmailManager(models.Manager):
         ## Make sure email is unique
         # elif email == checkEmail:
         #     errors.append("An Email Address by that name already exists!  Try a new one.")
-        if len(errors) is not 0:
+        if errors:
             return (False, errors)
         else:
             e = Email.emailManage.create(email=email)

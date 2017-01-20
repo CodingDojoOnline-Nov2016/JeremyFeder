@@ -8,12 +8,15 @@ def index(request):
 def create(request):
     if request.method == "POST":
         result = Email.emailManage.register(request.POST['email'])
-        if result[False]:
-            request.session['email'] = result[True].email
+        if result[0]:
+            #Displays entered email as the validated email in Success
+            request.session['email'] = result[1].email
+            #Clears out session errors on "Back"
             request.session['errors'] = []
             return redirect('/success')
         else:
-            request.session['errors'] = result[True]
+            ##Else there is an error
+            request.session['errors'] = result[1]
             return redirect('/')
     else:
         return redirect('/')
