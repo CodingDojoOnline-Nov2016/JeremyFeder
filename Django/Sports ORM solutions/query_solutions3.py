@@ -16,6 +16,13 @@
 "players": Player.objects.filter(first_name__icontains='Joshua').filter(all_teams__league__name__icontains='Atlantic Federation', all_teams__league__sport__icontains='Baseball')
 
 # 6  Find all teams that have had 12 or more players, past and present. (HINT: Look up the Django annotate function.)
+First ---  add line:      from django.db.models import Count         -  to views.py
+Second --- to print result :
+print 'count', Team.objects.annotate(num_players=Count('all_players')).filter(num_players__gte=12).count()
 
+...and to display:
+
+"teams": Team.objects.annotate(num_players=Count('all_players')).filter(num_players__gte=12)
 
 # 7  Show all players, sorted by the number of teams they've played for
+"players": Player.objects.annotate(num_teams=Count('all_teams')).order_by('num_teams')
