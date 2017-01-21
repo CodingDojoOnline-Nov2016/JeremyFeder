@@ -1,0 +1,210 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: tahoma;
+}
+
+#container {
+  width: 960px;
+  height: 1060px;
+  margin: 0px auto;
+  background-color: #181818;
+  padding: 5px;
+}
+
+#header {
+
+}
+
+  #header img {
+    padding: 10px;
+    margin-right: 540px;
+  }
+
+  #header p {
+    color: white;
+    font-size: 10pt;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 20px;
+  }
+
+#topnav {
+  text-align: left;
+  width: 940px;
+  height: 25px;
+  background-color: grey;
+  background: linear-gradient(#888888, #585858, #888888);
+  padding-left: 20px;
+  padding-bottom: 5px;
+}
+
+  #topnav li {
+  display: inline;
+  font-size: 10px;
+  }
+
+  #topnav ul li span {
+    color: white;
+  }
+
+  #topnav ul li:after {
+    content: "|";
+    font-size: 16pt;
+    padding: 5px;
+    color: dimgrey;
+  }
+
+  #topnav ul li:last-child:after{
+    content: none;
+  }
+
+  #topnav a{
+    color: silver;
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+#mid {
+  /*display: inline-block;*/
+}
+
+  #mid img.big {
+    margin-top: 1px;
+    width: 960px;
+    height: 355px;
+    border-bottom: 5px solid grey;
+  }
+
+#mid_content {
+  display: inline-block;
+  background-color: #282828;
+}
+
+  #mid_content h4 {
+    color: #e68a00;
+    font-weight: normal;
+    font-size: 12pt;
+    font-family: georgia;
+  }
+
+  #mid_content p {
+    color: white;
+    font-size: 9pt;
+  }
+
+
+  .box {
+    width: 220px;
+    padding: 30px 0px 30px 15px;
+    display: inline-block;
+  }
+
+  .box_content {
+    display: inline-block;
+    width: 160px;
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+#mid2 {
+  padding: 20px;
+  width: 540px;
+  display: inline-block;
+}
+
+  #mid2_text h2 {
+    color: white;
+    font-weight: normal;
+    padding-bottom: 10px;
+    width: 540px;
+    display: inline-block;
+  }
+
+  #mid2_text p {
+    font-size: 9pt;
+    color: white;
+  }
+
+  #mid2_text {
+    display: inline-block;
+  }
+
+#buynow {
+  display: inline-block;
+  margin-left: 250px;
+  vertical-align: top;
+  padding-top: 40px;
+}
+
+  #buynow a {
+    padding: 5px 15px 5px 15px;
+    background-color: orange;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 10pt;
+  }
+
+#bottom {
+  display: inline-block;
+  background-color: #282828;
+  width: 930px;
+  padding: 5px 15px 5px 15px;
+
+}
+
+  #bottom h4 {
+    font-family: georgia;
+    color: white;
+    font-weight: normal;
+    font-size: 12pt;
+    padding-top: 10px;
+  }
+
+  #bottom a {
+    color: #e68a00;
+    font-size: 9pt;
+    padding-left: 800px;
+    vertical-align: top;
+  }
+
+  .low_cont h4 {
+    color: #e68a00;
+    font-weight: normal;
+    font-size: 12pt;
+    font-family: georgia;
+  }
+
+  .low_cont p {
+    color: white;
+    font-size: 9pt;
+  }
+
+
+  .lowboxes {
+    width: 200px;
+    padding: 15px;
+    display: inline-block;
+  }
+
+  .low_cont {
+    display: inline-block;
+    width: 220px;
+  }
+
+  .icon {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+#backtop {
+  padding-top: 20px;
+  padding-left: 860px;
+  font-size: 9pt;
+  color: grey;
+}
