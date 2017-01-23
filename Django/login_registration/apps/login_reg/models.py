@@ -1,0 +1,66 @@
+from __future__ import unicode_literals
+from django.core.exceptions import ObjectDoesNotExist
+from django.db import models
+import re, bcrypt
+
+name_regex = re.compile(r"^[a-zA-Z\-]+$")
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]+$')
+
+# Create your models here.
+class UserManager(models.Manager):
+
+    def loginValidate(self, request):
+        try:
+            # Check if user exists in DB by using email as identifier
+            user = User.objects.get(email=request.POST['email'])
+            # And if User exists, validate password
+            password = request.POST['password'].encode()
+            if bcrypt.hashpw(password, user.pw_hash.encode()):
+                return (True, user)
+
+        except ObjectDoesNotExist:
+            print("A user with that Email does not exist.")
+            pass
+
+        return (False, ["Incorrect Password/Email, or the User does not exist."])
+
+    def regValidate(self, request):
+        errors = []
+
+        if len(request.POST['first_name']) < 1 or len(request.POST['last_name']) < 1:
+            errors.append("The First/Last Name fields cannot be blank! They must each have at least 1 character.")
+
+        elif not name_regex.match(request.POST['first_name']) or not name_regex.match(request.POST['last_name']):
+            errors.append("You may not include any numbers or special characters in First or Last name.")
+
+        if not EMAIL_REGEX.match(request.POST['email']):
+            errors.append("Please enter a valid Email!  (Example: email@email.com)")
+
+        # ## Make sure email is unique
+        # elif self.objects.filter(email=email):
+        #     errors.append("An Email Address by that name already exists!  Try a new one.")
+
+        if len(request.POST['password']) < 8:
+            errors.append('Your Password must contain 8 or more characters!')
+
+        if request.POST['password'] != request.POST['confirm_pw']:
+            errors.append('Your Password and Confirm Password must match!')
+
+        if errors:
+            return(False, errors)
+
+        #Create the PW Hash if no errors
+        pw_hash = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt())
+        print pw_hash
+
+        #Create New User once the PW is hashed
+        user = self.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'], pw_hash=pw_hash)
+
+        return (True, user)
+
+class User(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField()
+    pw_hash = models.CharField(max_length=256)
+    objects = UserManager()
