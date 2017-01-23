@@ -11,11 +11,14 @@ class UserManager(models.Manager):
 
     def loginValidate(self, request):
         try:
-            # Check if user exists in DB by using email as identifier
-            user = User.objects.get(email=request.POST['email'])
-            # And if User exists, validate password
+            user = User.objects.get(email=request.POST['email'].strip().lower())
             password = request.POST['password'].encode()
-            if bcrypt.hashpw(password, user.pw_hash.encode()):
+            hashed_pw = user.pw_hash.encode()
+            print user
+            print password
+            print hashed_pw
+
+            if hashed_pw == bcrypt.hashpw(password, hashed_pw):
                 return (True, user)
 
         except ObjectDoesNotExist:
@@ -27,6 +30,9 @@ class UserManager(models.Manager):
     def regValidate(self, request):
         errors = []
 
+        if User.objects.filter(email=request.POST['email'].strip().lower()):
+            errors.append("A user with that Email Address already exists!  Please Log In.")
+
         if len(request.POST['first_name']) < 1 or len(request.POST['last_name']) < 1:
             errors.append("The First/Last Name fields cannot be blank! They must each have at least 1 character.")
 
@@ -35,10 +41,6 @@ class UserManager(models.Manager):
 
         if not EMAIL_REGEX.match(request.POST['email']):
             errors.append("Please enter a valid Email!  (Example: email@email.com)")
-
-        # ## Make sure email is unique
-        # elif self.objects.filter(email=email):
-        #     errors.append("An Email Address by that name already exists!  Try a new one.")
 
         if len(request.POST['password']) < 8:
             errors.append('Your Password must contain 8 or more characters!')
@@ -54,13 +56,15 @@ class UserManager(models.Manager):
         print pw_hash
 
         #Create New User once the PW is hashed
-        user = self.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'], pw_hash=pw_hash)
+        user = self.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], email=request.POST['email'].strip().lower(), pw_hash=pw_hash)
 
         return (True, user)
 
 class User(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField()
+    email = models.EmailField(max_length=100, null=False)
     pw_hash = models.CharField(max_length=256)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
