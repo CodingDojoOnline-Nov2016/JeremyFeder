@@ -1,7 +1,7 @@
 from django.conf.urls import url
-from . import views
+from views import index, process
 
 urlpatterns = [
-    url(r'^$', views.index),
-    url(r'^process_gold$', views.process),
+    url(r'^$', index, name='index'),
+    url(r'^process_gold$', process, name='process_g'),
 ]

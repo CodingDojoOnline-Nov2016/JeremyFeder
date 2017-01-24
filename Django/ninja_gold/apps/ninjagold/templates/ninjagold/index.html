@@ -10,7 +10,7 @@
     <div class="wrapper">
       <h1>Welcome to Ninja Gold! (Django-Style)</h1>
       <label>You have this much gold: {{count}}</label>
-      <form action="/process_gold" method="post">
+      <form action="{% url 'process_g' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="building" value="reset">
         <input type="submit" value="RESET GOLD">
@@ -18,7 +18,7 @@
       <div id="farm">
         <h3>Farm</h3>
         <p>(earns 10-20 gold)</p>
-        <form action="/process_gold" method="post">
+        <form action="{% url 'process_g' %}" method="post">
           {% csrf_token %}
           <input type="hidden" name="building" value="farm">
           <input type="submit" value="Earn Gold!">
@@ -27,7 +27,7 @@
       <div id="cave">
         <h3>Cave</h3>
         <p>(earns 5-10 gold)</p>
-        <form action="/process_gold" method="post">
+        <form action="{% url 'process_g' %}" method="post">
           {% csrf_token %}
           <input type="hidden" name="building" value="cave">
           <input type="submit" value="Earn Gold!">
@@ -36,7 +36,7 @@
       <div id="house">
         <h3>House</h3>
         <p>(earns 2-5 gold)</p>
-        <form action="/process_gold" method="post">
+        <form action="{% url 'process_g' %}" method="post">
           {% csrf_token %}
           <input type="hidden" name="building" value="house">
           <input type="submit" value="Earn Gold!">
@@ -45,7 +45,7 @@
       <div id="casino">
         <h3>Casino</h3>
         <p>(earns or loses 0-50 gold)</p>
-        <form action="/process_gold" method="post">
+        <form action="{% url 'process_g' %}" method="post">
           {% csrf_token %}
           <input type="hidden" name="building" value="casino">
           <input type="submit" value="Earn/Lose Gold!">

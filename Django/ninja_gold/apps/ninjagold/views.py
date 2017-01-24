@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from django.core.urlresolvers import reverse 
 import random
 
 # Create your views here.
@@ -57,7 +58,7 @@ def process(request):
 
         print casino_gold
 
-    return redirect('/')
+    return redirect(reverse('index'))
 
 def addAction(request, num, action, place):
     now = timezone.now()
@@ -79,4 +80,4 @@ def addAction(request, num, action, place):
             lost = 'Entered the casino and lost %d gold... Ouch! %s' % (num, now)
             request.session['action'].insert(0, ['lost', lost])
 
-    return redirect('/')
+    return redirect(reverse('index'))
