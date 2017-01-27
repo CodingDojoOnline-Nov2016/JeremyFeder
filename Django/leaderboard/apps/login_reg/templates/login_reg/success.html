@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="{% static 'login_reg/css/style.css' %}">
   </head>
   <body>
-    <h1>Hello {{request.session.user.first_name}} {{request.session.user.last_name}}!  You are now logged in.</h1>
+    <h1>Hello {{request.session.user.first_name}} {{request.session.user.last_name}}!  You are now logged in.  {{request.session.user.id}}</h1>
     <div id="links">
-      <a href="{% url 'ninjagold:index' %}">Play Ninja Gold?</a>
+      <div class="ninja">
+        <a href="{% url 'ninjagold:index' %}">Play Ninja Gold?</a>
+      </div>
       <a href="{% url 'users:logout' %}">Logout</a>
     </div>
     <h3>Here is a ninja.</h3>

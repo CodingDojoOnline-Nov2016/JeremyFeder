@@ -45,5 +45,5 @@ def log_in_user(request, user):
     return redirect(reverse('users:success'))
 
 def logout(request):
-    request.session.pop('user')
+    request.session.clear()
     return redirect(reverse('users:index'))

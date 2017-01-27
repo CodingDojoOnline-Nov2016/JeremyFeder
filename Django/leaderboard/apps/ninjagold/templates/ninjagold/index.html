@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="{% static 'ninjagold/css/styles.css' %}">
   </head>
   <body>
-      <a href="{% url 'dashboard:index' %}">Back To Landing Page</a>
-      <a href="{% url 'ninjagold:logout' %}">Go Back</a>
+    <h1>{{ request.session.user.first_name }} {{ request.session.user.last_name }}, you are now playing NINJA GOLD!  {{ request.session.user.id }}</h1>
+    <a href="{% url 'ninjagold:save' %}">Save Game</a>
+    <a href="{% url 'ninjagold:logout' %}">Log Out without Saving</a>
     <div class="wrapper">
-      <h1>Welcome to Ninja Gold! (Django-Style)</h1>
+      <h2>Welcome to Ninja Gold! (Django-Style)</h2>
       <label>You have this much gold: {{count}}</label>
       <form action="{% url 'ninjagold:process_g' %}" method="post">
         {% csrf_token %}
