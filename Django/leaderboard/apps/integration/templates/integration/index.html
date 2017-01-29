@@ -10,5 +10,10 @@
     <h1>Hello Integrated World of Gold-Seeking Ninjas!</h1>
     <a href="{% url 'users:index' %}">Log In or Register to play!!</a>
     <h2>Top Scores</h2>
+    <ol>
+    {% for leader in leaderboards %}
+      <li>User: {{ leader.user.first_name }} {{ leader.user.last_name }}, Top Score: {{ leader.top_score }}, Games Played: {{ leader.games_played }}, Total Earned Gold: {{ leader.total_gold_earned }}</li>
+    {% endfor %}
+  </ol>
   </body>
 </html>

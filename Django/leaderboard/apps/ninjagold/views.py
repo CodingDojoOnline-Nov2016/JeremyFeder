@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.core.urlresolvers import reverse
 import random
-from .models import Leaderboard
+from ..integration.models import Leaderboard
 
 # Create your views here.
 def index(request):
@@ -84,21 +84,22 @@ def addAction(request, num, action, place):
     return redirect(reverse('ninjagold:index'))
 
 def save(request):
-    if not 'id' in request.session:
+
+    if not 'user' in request.session:
         print "i failed"
         return redirect('ninjagold:index')
 
-    print request.session['id'], "user id"
-    print request.session['email'], "user email"
+    print request.session['user']['id'], "user id"
+    print request.session['user']['email'], "user email"
     print request.session['count'], "gold count (count)"
 
     data = {
-        'id': request.session['id'],
+        'id': request.session['user']['id'],
         'score': request.session['count'],
     }
 
     ## need to remove print statement once operational
-    print Leaderboard.objects.update_score(data)
+    Leaderboard.objects.update_score(data)
 
     return redirect('ninjagold:index')
 
