@@ -20,7 +20,7 @@ class LeaderboardManageer(models.Manager):
         try:
             # below is equivalent to    board = Leaderboard.objects.get(user=current_user)
             board = self.get(user=current_user)
-            if board.top_score > str_score:
+            if board.top_score < str_score:
                 board.top_score = str_score
             board.games_played += 1
             board.total_gold_earned += str_score

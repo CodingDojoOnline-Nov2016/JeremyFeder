@@ -99,7 +99,7 @@ def save(request):
     }
 
     ## need to remove print statement once operational
-    Leaderboard.objects.update_score(data)
+    print Leaderboard.objects.update_score(data)
 
     return redirect('ninjagold:index')
 

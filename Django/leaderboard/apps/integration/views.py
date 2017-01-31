@@ -8,11 +8,13 @@ from .models import Leaderboard
 
 # Create your views here.
 def index(request):
-    return render(request, 'integration/index.html')
-
-def show(request):
     context = {
-        'leaderboards': Leaderboard.objects.all().order_by('-top_score')[:5],
-        # 'top_leaders': Leaderboard.objects.all(),
+    'leaderboards': Leaderboard.objects.all().order_by('-top_score')[:5],
+    # 'top_leaders': Leaderboard.objects.all(),
     }
+    print Leaderboard.objects.all()
     return render(request, 'integration/index.html', context)
+
+# def show(request):
+#     print "I am SHOW!!!!!!!"
+#     return render(request, 'integration/index.html', context)
